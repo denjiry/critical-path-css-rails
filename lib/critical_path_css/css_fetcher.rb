@@ -16,7 +16,7 @@ module CriticalPathCss
     def fetch_route(route)
       options = {
         'url' => @config.base_url + route,
-        'css' => @config.path_for_route(route),
+        'css' => @config.css_paths[0],
         'width' => 1300,
         'height' => 900,
         'timeout' => 30_000,
