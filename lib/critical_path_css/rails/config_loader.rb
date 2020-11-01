@@ -22,9 +22,7 @@ module CriticalPathCss
         config['css_paths'] = [config['css_path']] if config['css_path']
 
         unless config['css_paths']
-          style_path = ActionController::Base.helpers.stylesheet_link_tag(config['manifest_name'], host: '')
-          extracted = style_path.sub(/.*href=\"/, '').sub(/\".*/, '')
-          config['css_paths'] = [extracted]
+          config['css_paths'] = [ActionController::Base.helpers.stylesheet_path(config['manifest_name'], host: '')]
         end
         config['css_paths'].map! { |path| format_path(path) }
       end
