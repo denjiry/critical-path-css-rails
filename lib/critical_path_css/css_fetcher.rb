@@ -47,6 +47,8 @@ module CriticalPathCss
         STDOUT.puts out
         STDERR.puts err
         STDERR.puts "Failed to get CSS for route #{route}\n" \
+                    "  with options=#{options.inspect}"
+        raise "Failed to get CSS for route #{route}" \
               "  with options=#{options.inspect}"
       end
       out
